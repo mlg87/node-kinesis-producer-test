@@ -4,6 +4,7 @@
   "description": "A sample producer app.",
   "main": "index.js",
   "scripts": {
+    "start": "AWS_PROFILE=StockTradeSimulator && nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/mlg87/node-kinesis-producer-test/issues"
   },
-  "homepage": "https://github.com/mlg87/node-kinesis-producer-test#readme"
+  "homepage": "https://github.com/mlg87/node-kinesis-producer-test#readme",
+  "dependencies": {
+    "aws-sdk": "^2.221.1",
+    "body-parser": "^1.18.2",
+    "casual": "^1.5.19",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
+  }
 }
