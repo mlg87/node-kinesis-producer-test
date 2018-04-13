@@ -3,7 +3,7 @@ const casual = require('casual')
 const symbols = ['ABC', 'AMZN', 'APPL', 'MSFT', 'XYZ']
 const types = ['BUY', 'SELL']
 
-class Trade {
+class Record {
   generate() {
     return {
       tickerSymbol: symbols[Math.floor(Math.random() * 5)],
@@ -15,4 +15,4 @@ class Trade {
   }
 }
 
-module.exports = Trade
+module.exports = Record

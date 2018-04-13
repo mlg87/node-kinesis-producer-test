@@ -4,19 +4,14 @@
   "description": "A sample producer app.",
   "main": "index.js",
   "scripts": {
-    "start": "AWS_PROFILE=StockTradeSimulator && nodemon index.js",
+    "start": "AWS_PROFILE=GUAPI_Stream_User && nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mlg87/node-kinesis-producer-test.git"
   },
-  "keywords": [
-    "kinesis",
-    "node",
-    "producer",
-    "aws"
-  ],
+  "keywords": ["kinesis", "node", "producer", "aws"],
   "author": "mlg87",
   "license": "ISC",
   "bugs": {
