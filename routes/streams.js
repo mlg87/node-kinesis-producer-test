@@ -18,9 +18,12 @@ router.post('/put-record', (req, res) => {
   const newRecord = new Record()
   const params = {
     Data: JSON.stringify(newRecord.generate()),
-    PartitionKey: 'mason-test',
-    StreamName: 'GUAPI_Stream'
+    PartitionKey: 'shardId-000000000000',
+    StreamName: 'guapi'
   }
+
+  console.log(params.Data)
+
   kinesis.putRecord(params, (error, data) => {
     if (error) {
       return res.status(500).json({ error, message: 'Error' })
@@ -34,7 +37,7 @@ router.post('/put-record', (req, res) => {
 // calling describeStream and getShardIterator would only need to occur on the first loop
 router.get('/get-records', (req, res) => {
   // 1 get shardId
-  kinesis.describeStream({ StreamName: 'GUAPI_Stream' }, (error, streamData) => {
+  kinesis.describeStream({ StreamName: 'guapi' }, (error, streamData) => {
     if (error) {
       return res.status(500).json({ error, message: 'Error' })
     }
@@ -43,7 +46,7 @@ router.get('/get-records', (req, res) => {
     const params = {
       ShardId,
       ShardIteratorType: 'TRIM_HORIZON',
-      StreamName: 'GUAPI_Stream'
+      StreamName: 'guapi'
     }
     kinesis.getShardIterator(params, (error, shardIteratorData) => {
       if (error) {
